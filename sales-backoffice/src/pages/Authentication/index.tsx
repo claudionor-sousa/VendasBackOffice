@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { AuthInterface } from "./interfaces/Auth";
-
+import './styles.scss'
 
 function AuthComponent(){
     const navigate =useNavigate()
@@ -19,35 +19,44 @@ function AuthComponent(){
       };
 
     return (
-        <Box 
-          component="form"
-          onSubmit={handleSubmit(onSubmit)}
-          sx={{ display: "flex", flexDirection: "column", gap: 2, width: 300, mx: "auto", mt: 5 }}
-        >
-          <Typography variant="h5" align="center">Login</Typography>
-    
-          <TextField
-            label="E-mail"
-            type="email"
-            {...register("email", { required: "E-mail é obrigatório" })}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-            fullWidth
-          />
-    
-          <TextField
-            label="Senha"
-            type="password"
-            {...register("password", { required: "Senha é obrigatória" })}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            fullWidth
-          />
-    
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Entrar
-          </Button>
+      <div className="ContainerAuth">
+        <Box className='FirstBox'>
+        <Typography  align="center" className="Title" >Store Management</Typography>
+          <Box 
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            className='SecondBox'
+
+          >
+            <Typography variant="h5" align="center">Autenticação</Typography>
+      
+            <TextField
+              label="E-mail"
+              type="email"
+              {...register("email", { required: "E-mail é obrigatório" })}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+              fullWidth
+            />
+      
+            <TextField
+              label="Senha"
+              type="password"
+              {...register("password", { required: "Senha é obrigatória" })}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+              fullWidth
+            />
+      
+            <Button type="submit" variant="contained" color="primary" fullWidth>
+              Entrar
+            </Button>
+            <Typography align="center">Lembrar minha senha?</Typography>
+          </Box>
         </Box>
+        
+      </div>
+        
       );
 }
 export default AuthComponent;
