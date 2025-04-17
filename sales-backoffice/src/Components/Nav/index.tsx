@@ -21,8 +21,8 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PersonIcon from '@mui/icons-material/Person';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './styles.scss';
+
 
 const navItems = [
   { label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
@@ -32,7 +32,7 @@ const navItems = [
   { label: 'Financeiro', path: '/financial', icon: <AccountBalanceIcon /> },
   { label: 'Relatórios', path: '/reports', icon: <BarChartIcon /> },
   { label: 'Usuários', path: '/users', icon: <PersonIcon /> },
-  { label: 'Sair', path: '/', icon: <ExitToAppIcon /> },
+
 ];
 
 interface DrawerAppBarProps {

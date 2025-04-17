@@ -1,11 +1,13 @@
-import { useNavigate } from "react-router";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { AuthInterface } from "./interfaces/Auth";
 import './styles.scss'
+import { useAuthContext } from "../../context/AuthContext/inde";
+import { useAlertContext } from "../../context/AlertContext";
 
 function AuthComponent(){
-    const navigate =useNavigate()
+    const { showAlert } = useAlertContext();
+    const {login}=useAuthContext()
     const {
         register,
         handleSubmit,
@@ -13,9 +15,7 @@ function AuthComponent(){
       } = useForm<AuthInterface>();
 
       const onSubmit = async (data: AuthInterface) => {
-        console.log(data,'data user')
-        navigate('/DashBoard')
-
+          login(data.email,data.password)
       };
 
     return (
